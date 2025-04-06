@@ -1,0 +1,3 @@
+[submodule "src/towr"]
+	path = src/towr
+	url = https://github.com/TheoDfft/towr_gait_research.git
