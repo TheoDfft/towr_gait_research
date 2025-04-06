@@ -64,19 +64,19 @@ TowrUserInterface::TowrUserInterface ()
   user_command_pub_ = n.advertise<towr_ros::TowrCommand>(towr_msgs::user_command, 1);
 
   goal_geom_.lin.p_.setZero();
-  goal_geom_.lin.p_ << 2.1, 0.0, 0.0;
+  goal_geom_.lin.p_ << 0.0, 0.0, 2.0;
   goal_geom_.ang.p_ << 0.0, 0.0, 0.0; // roll, pitch, yaw angle applied Z->Y'->X''
 
   robot_      = RobotModel::Monoped;
   terrain_    = HeightMap::FlatID;
   gait_combo_ = GaitGenerator::C0;
   total_duration_ = 2.4;
-  visualize_trajectory_ = false;
+  visualize_trajectory_ = true;
   plot_trajectory_ = false;
   replay_speed_ = 1.0; // realtime
-  optimize_ = false;
+  optimize_ = true;
   publish_optimized_trajectory_ = false;
-  optimize_phase_durations_ = false;
+  optimize_phase_durations_ = true;
 
   PrintScreen();
 }
@@ -131,7 +131,7 @@ TowrUserInterface::PrintScreen() const
   wmove(stdscr, GOAL_POS, X_DESCRIPTION);
   printw("Goal x-y");
   wmove(stdscr, GOAL_POS, X_VALUE);
-  PrintVector2D(goal_geom_.lin.p_.topRows(2));
+  PrintVector(goal_geom_.lin.p_);
   printw(" [m]");
 
   wmove(stdscr, GOAL_ORI, X_KEY);
@@ -204,10 +204,10 @@ TowrUserInterface::CallbackKey (int c)
     case KEY_UP:
       goal_geom_.lin.p_.y() -= d_lin;
       break;
-    case KEY_PPAGE:
+    case 'u':
       goal_geom_.lin.p_.z() += 0.5*d_lin;
       break;
-    case KEY_NPAGE:
+    case 'd':
       goal_geom_.lin.p_.z() -= 0.5*d_lin;
       break;
 
