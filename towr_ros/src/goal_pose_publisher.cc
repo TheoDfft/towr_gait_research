@@ -53,9 +53,10 @@ void UserCommandCallback(const towr_ros::TowrCommand& msg_in)
   // visualize goal z state on terrain.
   double x = msg_in.goal_lin.pos.x;
   double y = msg_in.goal_lin.pos.y;
+  double z = msg_in.goal_lin.pos.z;
   goal_msg.pose.position.x = x;
   goal_msg.pose.position.y = y;
-  goal_msg.pose.position.z = terrain_->GetHeight(x, y);
+  goal_msg.pose.position.z = z;
 
   // orientation according to message
   Eigen::Quaterniond q = xpp::GetQuaternionFromEulerZYX(msg_in.goal_ang.pos.z,
