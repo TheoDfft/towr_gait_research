@@ -63,8 +63,9 @@ TowrUserInterface::TowrUserInterface ()
   ::ros::NodeHandle n;
   user_command_pub_ = n.advertise<towr_ros::TowrCommand>(towr_msgs::user_command, 1);
 
-  goal_geom_.lin.p_.setZero();
-  goal_geom_.lin.p_ << 2.0, 0.0;
+  
+  // goal_geom_.lin.p_.setZero();
+  goal_geom_.lin.p_ << 0.0, 0.0, 0.57;
   goal_geom_.ang.p_ << 0.0, 0.0, 0.0; // roll, pitch, yaw angle applied Z->Y'->X''
 
   robot_      = RobotModel::Monoped;
@@ -76,7 +77,7 @@ TowrUserInterface::TowrUserInterface ()
   replay_speed_ = 0.5; // realtime
   optimize_ = false;
   publish_optimized_trajectory_ = false;
-  optimize_phase_durations_ = true;
+  optimize_phase_durations_ = false;
 
   PrintScreen();
 }

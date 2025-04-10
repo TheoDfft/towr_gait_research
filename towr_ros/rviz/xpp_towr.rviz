@@ -96,7 +96,7 @@ Visualization Manager:
         support_polygons: true
       Queue Size: 100
       Value: true
-    - Alpha: 0.5
+    - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -208,7 +208,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 4.900740146636963
+      Distance: 2.666288375854492
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -216,17 +216,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.8147569894790649
-        Y: -0.12352100014686584
-        Z: -0.5799980163574219
+        X: -0.0053775012493133545
+        Y: -0.4641810655593872
+        Z: -0.5799971222877502
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.28979799151420593
+      Pitch: 0.33479803800582886
       Target Frame: <Fixed Frame>
-      Yaw: 1.3389899730682373
+      Yaw: 1.7189890146255493
     Saved:
       - Angle: 3.140000104904175
         Class: rviz/TopDownOrtho
